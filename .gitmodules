@@ -1,0 +1,6 @@
+[submodule "api"]
+  path = api
+  url = https://github.com/akinari0919/v-sign-api
+[submodule "front"]
+  path = front
+  url = https://github.com/akinari0919/v-sign-front
