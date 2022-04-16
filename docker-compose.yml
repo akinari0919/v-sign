@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:12.3-alpine
+    environment:
+      TZ: UTC
+      PGTZ: UTC
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    volumes:
+      - ./api/tmp/db:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./api
+      args:
+        WORKDIR: $WORKDIR
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      API_DOMAIN: "localhost:$FRONT_PORT"
+    volumes:
+      - ./api:/$WORKDIR
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+
+  front:
+    build:
+      context: ./front
+      args:
+        WORKDIR: $WORKDIR
+        CONTAINER_PORT: $CONTAINER_PORT
+    volumes:
+      - ./front:/$WORKDIR
+    depends_on:
+      - api
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true
+    command: yarn serve
