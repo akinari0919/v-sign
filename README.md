@@ -14,6 +14,8 @@ https://www.peace-sign-competition.com/
   - 画像データは保存・公開でき、角度に応じてランキング表示される
   - 保存時点のラインキングと角度結果をTwitterでつぶやける
 
+[![Image from Gyazo](https://i.gyazo.com/79cf14a8b24fc42d236274ea500d2f0c.gif)](https://gyazo.com/79cf14a8b24fc42d236274ea500d2f0c)
+
 <br>
 
 # ピースサインの角度取得について✌️
@@ -86,10 +88,9 @@ export default {
 
 ## 🔻苦労ポイント3つ🔻
 ### ①∠ABC角度算出
-はい、これで算出できます（どーん）
+数学知識を取り入れました。
 [![Image from Gyazo](https://i.gyazo.com/e824b3828378c63bff5261f535115d41.png)](https://gyazo.com/e824b3828378c63bff5261f535115d41)
-幸い数学は嫌いではないので良かったですが、コードに落とし込む方法を模索しました。
-こちらは泥臭いですが何とか実装できました。
+コードに落とし込む方法を模索し何とか実装できました。
 ```js
 const ba0 = indexX - mcpX // A点(X軸) - B点(X軸)
 const ba1 = indexY - mcpY // A点(Y軸) - B点(Y軸)
