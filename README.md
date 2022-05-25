@@ -65,7 +65,7 @@ export default {
     findHands(results) {
       // 省略（V表示や角度算出etc.）
 
-      // MAXデータをリアルタイムデータを上回った場合（バグ発生のため10°以上の条件追加）
+      // MAXデータをリアルタイムデータが上回った場合（バグ発生のため10°以上の条件追加）
       if (this.check.angle > this.item.angle && this.check.angle > 10) {
         // 省略（画像データや角度データを更新）
       }
